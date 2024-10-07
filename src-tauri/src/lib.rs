@@ -9,7 +9,8 @@ pub fn run() {
             app.listen_any("toggle-fullscreen", move |_| {
                 let is_fullscreen = main_window.is_fullscreen().unwrap();
                 println!("toggle fullscreen  (current: {is_fullscreen})");
-                main_window.set_fullscreen(!is_fullscreen).ok();
+                main_window.set_fullscreen(!is_fullscreen).unwrap();
+                println!("is_fullscreen: {} -> {}", is_fullscreen, main_window.is_fullscreen().unwrap());
             });
 
             Ok(())
